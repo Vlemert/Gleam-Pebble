@@ -2,12 +2,12 @@
     "versionLabel": "1.0",
     "uuid": "620fdd80-ff86-4172-83bc-bd632e866731",
     "appKeys": {},
-    "longName": "LAMP",
+    "longName": "Gleam Lightcontroller",
     "versionCode": 1,
     "capabilities": [
         "configurable"
     ],
-    "shortName": "LAMP",
+    "shortName": "Gleam",
     "companyName": "Vlemert",
     "watchapp": {
         "watchface": false
