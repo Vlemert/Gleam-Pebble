@@ -127,7 +127,7 @@ function anyLightOn() {
 	// Get all lights, check their on/off state, return result to pebble
 	getLights(function(e) {
 		var allLights = JSON.parse(e);
-		
+		console.log(e);
 		for (var i = 1; i < 50; i++) {
 			if (!allLights[i]) {
 				continue;
@@ -160,10 +160,12 @@ Pebble.addEventListener("ready",
 			
 			var config = JSON.parse(localStorage.gleamConfiguration);
 			
-			message.groupCount = config.groups.length;
+			if(config.groups) {
+				message.groupCount = config.groups.length;
 			
-			for (var i = 0; i < config.groups.length; i++) {
-				message[20+i] = config.groups[i].name;
+				for (var i = 0; i < config.groups.length; i++) {
+					message[20+i] = config.groups[i].name;
+				}	
 			}
 			
 			anyLightOn();
@@ -217,10 +219,12 @@ function loadMainMenu() {
 	var config = JSON.parse(localStorage.gleamConfiguration);
 	var message = {};
 	
-	message.groupCount = config.groups.length;
+	if (config.groups.length) {
+		message.groupCount = config.groups.length;
 			
-	for (var i = 0; i < config.groups.length; i++) {
-		message[20+i] = config.groups[i].name;
+		for (var i = 0; i < config.groups.length; i++) {
+			message[20+i] = config.groups[i].name;
+		}	
 	}
 	
 	anyLightOn();
@@ -243,10 +247,14 @@ function loadGroupMenu() {
 	var message = {};
 	
 	// TODO: fill this with the preset count
-	message.loadGroupMenu = config.presets.generic.length;
-	
-	for (var i = 0; i < config.presets.generic.length; i++) {
-		message[100+i] = config.presets.generic[i].name;
+	if (config.presets && config.presets.generic) {
+		message.loadGroupMenu = config.presets.generic.length;
+		
+		for (var i = 0; i < config.presets.generic.length; i++) {
+			message[100+i] = config.presets.generic[i].name;
+		}
+	} else {
+		message.loadGroupMenu = 0;
 	}
 	
 	// Trigger that the group menu is shown
