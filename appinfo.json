@@ -1,7 +1,15 @@
 {
     "versionLabel": "1.0",
     "uuid": "620fdd80-ff86-4172-83bc-bd632e866731",
-    "appKeys": {},
+    "appKeys": {
+        "loadMainMenu": 0,
+        "anyLightOn": 3,
+        "groupCount": 2,
+        "javascriptReady": 1,
+        "openGroupMenu": 5,
+        "loadGroupMenu": 4,
+        "setAllLightsOnState": 6
+    },
     "longName": "Gleam Lightcontroller",
     "versionCode": 1,
     "capabilities": [
@@ -13,6 +21,23 @@
         "watchface": false
     },
     "resources": {
-        "media": []
+        "media": [
+            {
+                "menuIcon": true,
+                "type": "png",
+                "name": "IMAGE_MENUICON",
+                "file": "images/menuIcon.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_SETUPSCREEN",
+                "file": "images/setup.png"
+            },
+            {
+                "type": "png-trans",
+                "name": "IMAGE_SPLASHSCREEN",
+                "file": "images/splash.png"
+            }
+        ]
     }
 }
